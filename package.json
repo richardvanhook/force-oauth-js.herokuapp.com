@@ -1,0 +1,11 @@
+{
+  "name": "salesforce-oauth-useragent",
+  "dependencies": {
+    "underscore": "1.4.2"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  },
+  "version": "0.0.1"
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <script src='lib/jquery.js' type='text/javascript'></script>
+    <script src='lib/underscore.js' type='text/javascript'></script>
+    <script src='lib/backbone.js' type='text/javascript'></script>
+    <script src='force.oauth.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div id="page"></div>
+    <script type='text/javascript'>
+      $(function(){
+        force.oauth.ready({
+          //required
+          clientId: '<%= CLIENT_ID %>',
+          authorized: function(token){
+            console.log(token);
+          },
+          //optional
+          popup: true,
+          scope: 'chatter_api',
+          unauthorized: function(){
+            console.log('unauthorized');
+            var signInButton = $('<button></button>').html('Authenticate');
+            signInButton.click(force.oauth.authorize);
+            $('#page').append(signInButton);
+          }
+        }); 
+      });
+    
+    </script>
+
+  </body>
+</html>
